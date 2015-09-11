@@ -1,2 +1,1 @@
-# cisco-vpn-password-decoder
-Decoder for password encoding of Cisco VPN client
+# Decoder for password encoding of Cisco VPN client
