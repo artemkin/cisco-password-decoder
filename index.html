@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Cisco VPN Client Password Decoder</title>
+    <script src="https://cdn.rawgit.com/artemkin/cisco-decrypt/master/forge.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/artemkin/cisco-decrypt/master/cisco-decrypt.js" type="text/javascript"></script>
+    <script>
+      function decrypt(obj) {
+        var encrypted = obj.value.trim();
+        var decrypted = decryptPassword(encrypted);
+        document.getElementById("decrypted").innerHTML = decrypted;
+      }
+    </script>
+  </head>
+  <body>
+    <form action="javascript:void(0);">
+      Encrypted Group Password <input type="text" id="encrypted" name="encrypted" onkeydown="decrypt(this);"/>
+    </form>
+    <p id="decrypted"></p>
+
+  </body>
+</html>
+
