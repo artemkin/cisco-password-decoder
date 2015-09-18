@@ -25,11 +25,26 @@
 */
 
 function preprocessInput(str) {
+
   str = str.trim();
+
   if (str.substring(0, 13) == 'enc_GroupPwd=') {
-    str.substring(13);
+    str = str.substring(13);
   }
+
   str = str.trim();
+
+  if (str.substring(0, 1) == "'" || str.substring(0, 1) == '"') {
+    str = str.substring(1);
+  }
+
+  if (str.substring(str.length - 1, str.length) == "'" ||
+      str.substring(str.length - 1, srt.length) == '"') {
+    str = str.substring(0, str.length - 1);
+  }
+
+  str = str.trim();
+
   if (/^([A-Fa-f0-9]{2})+$/.test(str))
   {
     return str;
