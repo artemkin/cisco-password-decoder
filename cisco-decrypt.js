@@ -24,8 +24,22 @@
 
 */
 
+function preprocessInput(str) {
+  str = str.trim();
+  if (str.substring(0, 13) == 'enc_GroupPwd=') {
+    str.substring(13);
+  }
+  str = str.trim();
+  if (/^([A-Fa-f0-9]{2})+$/.test(str))
+  {
+    return str;
+  }
+
+  return "";
+}
+
 function base16decode(str) {
-  return str.replace(/([A-F0-9]{2})/g, function(m, g1) {
+  return str.replace(/([A-Fa-f0-9]{2})/g, function(m, g1) {
       return String.fromCharCode(parseInt(g1, 16));
   });
 }
@@ -48,6 +62,11 @@ function calc_3des_key(origHash) {
 }
 
 function decryptPassword(pwd) {
+  pwd = preprocessInput(pwd);
+  if (pwd == "") {
+    return "";
+  }
+
   var binPwd = base16decode(pwd);
   var desKey = calc_3des_key(binPwd);
   var iv = binPwd.substring(0, 8);
