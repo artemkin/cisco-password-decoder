@@ -1,30 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Cisco VPN Client Password Decoder</title>
+    <meta charset="utf-8">
+    <title>Cisco VPN Client Password Decoder (unofficial)</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet/less" type="text/css" href="style.css">
+    <link rel="stylesheet/less" type="text/css" href="devices.css">
+
     <script src="https://cdn.rawgit.com/artemkin/cisco-password-decoder/gh-pages/forge.min.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/artemkin/cisco-password-decoder/gh-pages/cisco-decrypt.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
     <script>
-      var encrypted = "";
-
-      function lookForEncryptedChange() {
-          var newEncrypted = document.getElementById("encrypted").value.trim();
-          if (newEncrypted != encrypted) {
-              encrypted = newEncrypted;
-              var decrypted = decryptPassword(encrypted);
-              document.getElementById("decrypted").innerHTML = decrypted;
-          }
-      }
-
-      setInterval(lookForEncryptedChange, 100);
+    // Let's remove 300ms delay iin mobile browsers!
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
     </script>
+    <script src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   </head>
-  <body>
-    <p>Cisco VPN Client Password Decoder</p>
-    <form action="javascript:void(0);">
-      Encrypted Group Password <input type="text" id="encrypted" name="encrypted"/>
-    </form>
-    <p id="decrypted"></p>
+  <body ng-app="app" ng-controller="appController as app">
+    <header>
+      Cisco VPN Client Password Decoder
+    </header>
 
+    <div class="section3d">
+      <section class="front">
+        <div class="circle">
+          <div class="header">Enter encrypted group password here</div>
+          <div class="entry">
+            <img
+              class="arrow"
+              ng-class="{
+                'disabled' : app.encryptedStringLength() > 0,
+              }"
+              src="arrow.svg">
+            <textarea
+              onclick="this.focus();this.select()"
+              ng-class="{
+              'empty' : app.encryptedStringLength() == 0,
+              }"
+              ng-model="encryptedString"
+              ng-keyup="$event.keyCode == 13 && app.flip()"
+              >
+            </textarea>
+          </div>
+          <button
+            ng-click="app.flip()"
+            ng-disabled="app.encryptedStringLength() == 0"
+            >Decrypt!</button>
+            <div
+              class="clear"
+              ng-hide="app.encryptedStringLength() == 0"
+              ng-click="encryptedString=''"
+              ></div>
+        </div>
+      </section>
+      <section class="back hidden">
+        <div class="circle">
+          <div class="header">Copy dencrypted group password</div>
+          <textarea
+            onclick="this.focus();this.select()"
+            readonly="readonly"
+            >{{ ( app.decryptedStringLength() > 0 ) ? app.decryptPasswordString() : "Try again..." }}</textarea>
+          <button
+            ng-click="app.back()"
+            >Back</button>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <img src="shield.svg">
+      This is completely safe. Client-side decryption does not require sending any data outside your computer.
+    </footer>
   </body>
 </html>
-

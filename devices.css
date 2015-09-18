@@ -1,0 +1,157 @@
+/*
+    Big screens
+*/
+
+@media screen and (min-width: 701px) {
+  html, body {
+    min-height: 700px;
+  }
+
+  header {
+    margin-top: 20px;
+    line-height: 100px;
+    font-size: 36px;
+    font-weight: 100;
+  }
+
+  footer {
+    bottom: 20px;
+    font-size: 12px;
+    padding: 0 200px;
+
+    & img {
+      margin-bottom: 20px;
+      width: 40px;
+    }
+  }
+
+  section {
+    width: 370px;
+    height: 370px;
+    margin-left: -185px;
+    margin-top: -185px;
+
+    & .header {
+      padding: 60px 80px 0 80px;
+    }
+  }
+
+
+  & textarea {
+    width: 300px;
+    height: 60px;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 12px;
+
+    &.empty {
+      border: 1px dashed #707070;
+    }
+  }
+
+  & .back textarea {
+    font-size: 18px;
+    padding-top: 33px;
+  }
+
+  & button {
+    width: 190px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 24px;
+    margin-top: 35px;
+  }
+
+  & .clear {
+      margin: 20px auto 0 auto;
+  }
+}
+
+/*
+    Small screens
+*/
+
+@media screen and (max-width: 700px) {
+  html, body {
+    min-height: 450px;
+  }
+
+  header {
+    margin-top: 10px;
+    padding: 0 50px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: auto;
+  }
+
+  footer {
+    width: 100%;
+    bottom: 10px;
+    font-size: 10px;
+
+
+    & img {
+      margin-bottom: 10px;
+      width: 20px;
+    }
+  }
+
+  section {
+    width: 300px;
+    height: 300px;
+    margin-left: -150px;
+    margin-top: -150px;
+
+    & .header {
+      padding: 40px 30px 10px 30px;
+      font-size: 16px;
+    }
+  }
+
+  .content {
+    width: 300px;
+    text-align: center;
+
+    & section {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+      -webkit-transition: all .5s;
+
+    }
+  }
+
+  & textarea {
+    width: 220px;
+    height: 60px;
+    margin-top: 15px;
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  & .back textarea {
+    font-size: 16px;
+    padding-top: 27px;
+    opacity: 1;
+  }
+
+  & button {
+    width: 140px;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+
+  & .clear {
+      margin: 10px auto 0 auto;
+  }
+
+  & .arrow {
+    margin-top: -12px;
+  }
+}
