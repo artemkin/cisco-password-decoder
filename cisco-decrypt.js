@@ -39,7 +39,7 @@ function preprocessInput(str) {
   }
 
   if (str.substring(str.length - 1, str.length) == "'" ||
-      str.substring(str.length - 1, srt.length) == '"') {
+      str.substring(str.length - 1, str.length) == '"') {
     str = str.substring(0, str.length - 1);
   }
 
