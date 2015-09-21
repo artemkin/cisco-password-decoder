@@ -21,6 +21,13 @@ header {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  & .buttons {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    margin-left: -150px;
+    left: 50%;
+  }
 }
 
 footer {
