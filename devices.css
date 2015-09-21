@@ -10,13 +10,8 @@
   header {
     margin-top: 20px;
     line-height: 100px;
-    & h1 {
-      font-size: 36px;
-      font-weight: 100;
-    }
-    & .buttons {
-      top: calc(~"25% - 100px");
-    }
+    font-size: 36px;
+    font-weight: 100;
   }
 
   footer {
@@ -84,14 +79,9 @@
   header {
     margin-top: 10px;
     padding: 0 50px;
-    & h1 {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: auto;
-    }
-    & .buttons{
-      top: calc(~"25% - 70px");
-    }
+    font-size: 18px;
+    font-weight: 300;
+    line-height: auto;
   }
 
   footer {
