@@ -27,7 +27,7 @@ header {
     width: 300px;
     margin-left: -150px;
     left: 50%;
-  }  
+  }
 }
 
 footer {
@@ -297,4 +297,9 @@ footer {
       -ms-transition: opacity .2s;
        -o-transition: opacity .2s;
           transition: opacity .2s;
+}
+
+/* fix GH buttons glitch */
+.github-button {
+  display: none;
 }
