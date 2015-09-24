@@ -17,6 +17,8 @@
                 } else {
                   decrypted = "Wrong encrypted password";
                 }
+              } else {
+                decrypted = "&nbsp;";
               }
               document.getElementById("decrypted").innerHTML = decrypted;
           }
@@ -32,7 +34,14 @@
     <form action="javascript:void(0);">
       Encrypted Group Password <input type="text" size="90" id="encrypted" name="encrypted"/>
     </form>
-    <p id="decrypted"></p>
+
+    <p id="decrypted">&nbsp;</p>
+
+    <p>
+      <a style="opacity:0" class="github-button" href="https://github.com/artemkin" data-count-href="/artemkin/followers" data-count-api="/users/artemkin#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @artemkin on GitHub">Follow @artemkin</a>
+      <a style="opaticy:0" class="github-button" href="https://github.com/artemkin/cisco-password-decoder" data-icon="octicon-star" data-count-href="/artemkin/cisco-password-decoder/stargazers" data-count-api="/repos/artemkin/cisco-password-decoder#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star artemkin/cisco-password-decoder on GitHub">Star</a>
+    </p>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
 
