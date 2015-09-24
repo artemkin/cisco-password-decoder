@@ -11,6 +11,13 @@
           if (newEncrypted != encrypted) {
               encrypted = newEncrypted;
               var decrypted = decryptPassword(encrypted);
+              if (newEncrypted != "") {
+                if (decrypted != "") {
+                  decrypted = "Password: " + decrypted;
+                } else {
+                  decrypted = "Wrong encrypted password";
+                }
+              }
               document.getElementById("decrypted").innerHTML = decrypted;
           }
       }
@@ -19,12 +26,13 @@
     </script>
   </head>
   <body>
-    <p>Cisco VPN Client Password Decoder</p>
+    <h1>Cisco VPN Client Password Decoder</h1>
+    <p>As an example, this should return "HelloWorld" as the password:</p>
+    <p>A39CADD77ED72A9C75467D0F5A5C88BFCD75370DD63E3388D3F402AF50C4E5029071B0965C343B99B6D6636A8698562DDB2EE51020D87EA3</p>
     <form action="javascript:void(0);">
-      Encrypted Group Password <input type="text" id="encrypted" name="encrypted"/>
+      Encrypted Group Password <input type="text" size="90" id="encrypted" name="encrypted"/>
     </form>
     <p id="decrypted"></p>
-
   </body>
 </html>
 
