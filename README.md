@@ -1,8 +1,8 @@
 # Cisco VPN Client Password Decoder
 
-Pure javascript decoder for password encoding of Cisco VPN client.
+Pure javascript decoder for Cisco VPN client passwords.
 
-Usually, you need to decrypt group password stored in *.PCF files to setup [native Cisco VPN connection in Mac OS X][1]. 
+Usually, you need to decrypt group passwords stored in *.PCF files to setup [native Cisco VPN connection in Mac OS X][1]. 
 
 In contrast to other implementations, this decoder does everything in a browser, so a password never leaves your computer.
 
